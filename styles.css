@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.header {
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    border-bottom: rgb(197, 116, 143) 8px solid;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Roboto';
+}
+
+.form-container {
+    color: rgb(235, 235, 168);
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    padding: 20px;
+    font-family:'Roboto',sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    justify-content: center;
+}
+
+#book-form {
+    display: flex;
+    flex-flow: row;
+    text-align: center;
+    justify-content: center;
+}
+
+#label-text {
+    margin-right: 30px;
+}
+
+#info {
+    padding: 5px;
+    margin-top: 2px;
+    font-size: 1rem;
+    color:whitesmoke;
+    font-family:'Roboto';
+}
+
+#book-entry{
+    height: 3rem;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    border-bottom-style:groove;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style:hidden;
+    text-decoration: none;
+    outline: none;
+    color: whitesmoke;
+    font-family:'Roboto',sans-serif;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.book-list-container{
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.book-element {
+    font-family: 'Roboto';
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    color:thistle;
+    padding: 5px;
+    margin: 2px;
+}
+
+a {
+    float: right;
+}
