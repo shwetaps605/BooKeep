@@ -26,6 +26,8 @@
     text-align: center;
     justify-content: center;
     font-family: 'Roboto';
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 .form-container {
@@ -38,6 +40,8 @@
     font-size: 3rem;
     text-align: center;
     justify-content: center;
+    border-bottom-left-radius:30px ;
+    border-bottom-right-radius:30px ;
 }
 
 #book-form {
@@ -55,8 +59,10 @@
     padding: 5px;
     margin-top: 2px;
     font-size: 1rem;
-    color:whitesmoke;
+    color:white;
     font-family:'Roboto';
+    text-align: right;
+    font-weight: bold;
 }
 
 #book-entry{
@@ -88,6 +94,10 @@ ul {
     list-style-type: none;
 }
 
+a{
+    cursor: pointer;
+}
+
 .book-element {
     font-family: 'Roboto';
     font-size: 1.5rem;
@@ -96,10 +106,14 @@ ul {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-
     color:thistle;
     padding: 5px;
     margin: 2px;
+}
+
+.book-element:hover{
+    font-size: 1.8rem;
+    color:greenyellow ;
 }
 
 a {

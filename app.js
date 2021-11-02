@@ -13,11 +13,17 @@ bookForm.addEventListener('submit',(e)=>{
     const div = document.createElement('div');
     div.className = "book-element";
     const a = document.createElement('a');
-    a.className="btn btn-danger btn-lg delete";
+    a.className="delete";
     a.innerText="X";
     div.appendChild(document.createTextNode(book));
     div.appendChild(a);
     li.appendChild(div);
     bookList.appendChild(li);
     clearFields();
+});
+
+bookList.addEventListener('click',(e)=>{
+    if(e.target.classList.contains('delete')){
+        e.target.parentElement.parentElement.remove();
+    }
 });
