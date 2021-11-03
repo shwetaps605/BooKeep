@@ -6,58 +6,63 @@
     box-sizing: border-box;
 }
 
+
+
 #book-icon{
-    color: rgb(235, 235, 168);
+    color: yellowgreen;
     margin-left: 8px;
 }
 
 .container {
-    padding: 20px;
+    padding: 10px;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 90%;
 }
 
 .header {
     width: 100%;
     background-color: black;
-    opacity: 0.8;
-    border-bottom: rgb(197, 116, 143) 8px solid;
+    opacity: 0.9;
     color: white;
     padding: 20px;
-    text-align: center;
+    text-align: right;
     justify-content: center;
     font-family: 'Roboto';
+    font-size: 0.7rem;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
 
 .form-container {
-    color: rgb(235, 235, 168);
     width: 100%;
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.9;
     padding: 20px;
-    font-family:'Roboto',sans-serif;
-    font-size: 3rem;
-    text-align: center;
     justify-content: center;
     border-bottom-left-radius:30px ;
     border-bottom-right-radius:30px ;
+    display: flex;
+    flex-direction: column;
 }
 
 #book-form {
     display: flex;
-    flex-flow: row;
-    text-align: center;
-    justify-content: center;
+    flex-flow: column;
+    justify-content: space-between;
 }
 
-#label-text {
-    margin-right: 30px;
+.form-group {
+    font-family:'Roboto',sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    color: rgb(235, 235, 168);
+    display:flex;
+    justify-content:center;
+    padding: 10px;
 }
 
 #info {
@@ -70,22 +75,38 @@
     font-weight: bold;
 }
 
-#book-entry{
+label { 
+    display: table-cell;
+    text-align: right;
+    margin-right: auto;
+}
+
+input:not(#submit-input){
+    width: 50%;
+    display:table-cell;
     height: 3rem;
-    justify-content: center;
-    text-align: center;
-    background-color: black;
+    background-color: transparent;
     border-bottom-style:groove;
     border-top-style: hidden;
     border-left-style: hidden;
     border-right-style:hidden;
-    text-decoration: none;
     outline: none;
     color: whitesmoke;
     font-family:'Roboto',sans-serif;
     font-size: 2rem;
     text-align: left;
 }
+
+#submit-input{
+    border-style: hidden;
+    padding: 10px;
+    background-color: transparent;
+    color: yellowgreen;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+
 
 .book-list-container{
     width: 100%;
@@ -111,7 +132,7 @@ a{
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    color:thistle;
+    color:rgb(40, 219, 219);
     padding: 5px;
     margin: 2px;
 }
@@ -123,4 +144,23 @@ a{
 
 a {
     float: right;
+}
+
+
+
+.additional-field {
+    margin-top: 10px;
+    background-color: transparent;
+    outline: none;
+    padding: 10px;
+    color: white;
+    margin-left: 10px;
+    font-family: 'Roboto',sans-serif;
+    border: white 1px solid; 
+}
+
+.additional-field:hover {
+    color:#e36df3;
+    font-weight: bold;
+    border: #b596d3 1px solid; 
 }
