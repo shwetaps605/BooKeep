@@ -25,6 +25,20 @@ const addBookToStore = (book) => {
     localStorage.setItem('books', JSON.stringify(books));
 }
 
+const removeBooksFromStore = (bookTitle) => {
+    console.log(bookTitle)
+    const books= getBooksFromStore();
+    //console.log("Got books:",books);
+    books.forEach( (book,index)=> {
+        console.log(book.title);
+        if(book.title === bookTitle){
+            console.log(book);
+            books.splice(index,1);
+        }
+    });
+    localStorage.setItem('books',JSON.stringify(books));
+}
+
 
 const displayBooks = () => {
     const books = getBooksFromStore();
@@ -36,13 +50,15 @@ const displayBooks = () => {
 const addBookToList = ({title,author}) => {
     const li = document.createElement('li');
     const div = document.createElement('div');
+    const p = document.createElement('p');
     div.className = "book-element";
     const a = document.createElement('a');
     a.className="delete";
     a.innerText="X";
     const text = `${title}`;
     const authorText = author.length !== 0 ? ` by ${author}`:``;
-    div.appendChild(document.createTextNode(text + authorText));
+    p.innerText= text + authorText;
+    div.appendChild(p);
     div.appendChild(a);
     li.appendChild(div);
     bookList.appendChild(li);
@@ -66,13 +82,6 @@ const addField = (e) => {
     e.target.remove();
 }
 
-additionalFields.forEach(field => {
-    field.addEventListener('click',addField);
-});
-
-
-
-
 const clearFields = (authorPresent) => {
     document.querySelector('#title').value ="";
     if(authorPresent) {
@@ -80,7 +89,7 @@ const clearFields = (authorPresent) => {
     }
 }
 
-const addBooks = (e) => {
+const addBook = (e) => {
     e.preventDefault();
     let authorPresent = false;
     let authorName;
@@ -101,9 +110,16 @@ const removeBook = (e) => {
     if(e.target.classList.contains('delete')){
         e.target.parentElement.parentElement.remove();
     }
-    console.log(e.target.parentElement.firstChild);
+    const bookTitle = e.target.parentElement.firstChild.innerText.split("by")[0];
+    //console.log(bookTitle);
+    removeBooksFromStore(bookTitle);
 }
+
+additionalFields.forEach(field => {
+    field.addEventListener('click',addField);
+});
+
 document.addEventListener('DOMContentLoaded',displayBooks);
-bookForm.addEventListener('submit',addBooks);
+bookForm.addEventListener('submit',addBook);
 bookList.addEventListener('click',removeBook);
 
