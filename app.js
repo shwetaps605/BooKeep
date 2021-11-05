@@ -2,6 +2,7 @@ const bookList = document.querySelector("#book-list");
 const bookForm = document.querySelector("#book-form");
 const additionalFields = document.querySelectorAll('.additional-field');
 
+
 class Book {
     constructor(title, author) {
         this.title = title;
@@ -29,7 +30,6 @@ const removeBookFromStore = (bookTitle) => {
     const books = getBooksFromStore();
     books.forEach((book, index) => {
         if (book.title === String(bookTitle)) {
-            console.log(book);
             books.splice(index, 1);
         }
     });
@@ -56,6 +56,7 @@ const addBookToList = ({ title, author }) => {
     const text = `${title}`;
     const authorText = author.length !== 0 ? ` by ${author}` : ``;
     p.innerText = text + authorText;
+    p.className =  `book-info ${title}`;
     div.appendChild(p);
     div.appendChild(a);
     li.appendChild(div);
@@ -76,7 +77,6 @@ const addField = (e) => {
     div.appendChild(label);
     div.appendChild(input);
     bookForm.insertBefore(div, document.querySelector('.submit-group'));
-    console.log(bookForm);
     e.target.remove();
 }
 
@@ -92,6 +92,11 @@ const addBook = (e) => {
     let authorPresent = false;
     let authorName;
     const bookTitle = document.querySelector('#title').value;
+    if (bookTitle.length < 1) {
+        const div = document.createElement('div');
+        div.id = 'error';
+        div.innerText = 'Title'
+    }
     if (bookForm.childElementCount > 2) {
         authorName = document.querySelector('#author').value;
         authorPresent = true;
@@ -112,11 +117,20 @@ const removeBook = (e) => {
     removeBookFromStore(bookTitle.trim());
 }
 
+// const updateBook = (e) => {
+//     const div = e.target.parentElement;
+//     const childElement = div.firstChild;
+//     console.log(childElement.classList);
+// }
+
 additionalFields.forEach(field => {
     field.addEventListener('click', addField);
 });
 
+
+
 document.addEventListener('DOMContentLoaded', displayBooks);
 bookForm.addEventListener('submit', addBook);
 bookList.addEventListener('click', removeBook);
+//bookList.addEventListener('dblclick',updateBook);
 
